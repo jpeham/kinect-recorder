@@ -1,0 +1,30 @@
+syntax = "proto2";
+
+message MWValueTriple {
+    required double x = 1;
+    required double y = 2;
+    required double z = 3;
+}
+
+message MetaWearData {
+
+    enum Type {
+        ACC = 0;
+        GYRO = 1;
+        QUATERNION = 2;
+        SWITCH = 3;
+        BATTERY = 4;
+        FUSED = 5;
+    }
+    required Type type = 1;
+    required int64 timestamp = 2;
+    optional float w = 3;
+    optional float x = 4;
+    optional float y = 5;
+    optional float z = 6;
+    optional MWValueTriple acc = 7;
+    optional MWValueTriple gyro = 8;
+    optional int64 extra = 9;
+}
+
+option java_package = "com.kinemic.kinemic";
